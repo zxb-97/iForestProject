@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import sys
 import time
 import math
+import requests
+import io
 
 class CFactor:
     @classmethod
@@ -181,15 +183,18 @@ class IsolationTreeEnsemble:
 
 def main():
 
+
+
     # Load the data
     # Mulcross dataset has 5 attributes, 4 numerical , the fifth is either "Normal" or "Anomaly"
-    data, meta = arff.loadarff('C:\\Users\\zhaku\\Desktop\\Università\\Laurea Magistrale\\Tesi\\Thesis Project\\MulcrossDataset.arff')
+    
+    #--- Dataset needs to be in same directory as IsolationForest.py ---
+    data, meta = arff.loadarff('C:\\MulcrossDataset.arff')
     df = pd.DataFrame(data)
 
-    # Convert bytes to string and then to numeric where possible
+    # Separate numerical attributes from labels 
     for col in df.columns:
-        if df[col].dtype == object:  # Check if column contains bytes/strings
-            # Try to convert bytes to string
+        if df[col].dtype == object:  
             df[col] = df[col].apply(lambda x: x.decode('utf-8') if isinstance(x, bytes) else x)
         
             # If this is the label column (last column), we'll store it separately before removing
@@ -209,7 +214,7 @@ def main():
     
 
     # Now X contains only the feature columns as float values
-    # and y contains the labels if you need them for evaluation
+    # and y contains the labels for evaluation
     start_time = time.time()
     
     ensemble = IsolationTreeEnsemble(X, sample_size=32, n_trees=50)  
