@@ -1,5 +1,5 @@
 # iForest in java
-This is an implementation of the iForest algoritm in java. The project, contains a parser for .npy files and also for .npz files
+This is an implementation of the iForest algoritm in java. The project contains a parser for .npy files and also for .npz files
 that converts those formats to java arrays.
 
 ## Requirements
