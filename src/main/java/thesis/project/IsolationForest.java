@@ -18,6 +18,7 @@ public class IsolationForest {
         this.rand = new Random(42);
     }
 
+    /// Training stage
 
     // Sampling without replacement
     public void buildForest() {
@@ -124,6 +125,7 @@ public class IsolationForest {
     }
 
 
+    /// Evaluation stage
 
     private double[] avgPathLengths() {
         double[] pathLengths = new double[X.length];
