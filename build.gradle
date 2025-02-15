@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'thesis.project'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'build/libs'  // Point to the correct directory
+    }
+}
+
+dependencies {
+    // Using local JAR file
+    implementation files('build/libs/jstacs-2.3.jar')
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
