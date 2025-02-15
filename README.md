@@ -1,6 +1,6 @@
 # iForest in java
 This is an implementation of the iForest algoritm in java. The project contains a parser for .npy files and also for .npz files
-that converts those formats to java arrays.
+that converts those formats to java arrays. The parser are needed since the datasets I'm working with are from [ADbench](https://github.com/Minqi824/ADBench), which is a python library used to test anomaly detection algorithms.
 
 ## Requirements
 For evaluating the model with AUCROC and AUCPR scores, I've used the jstacs library. The jstacs-2.3.jar file 
